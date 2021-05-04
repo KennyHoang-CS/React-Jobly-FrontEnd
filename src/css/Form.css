@@ -1,0 +1,55 @@
+.Form-Container{
+    display: grid;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.Form-Container h1 {
+    font-weight: 400;
+}
+
+.Form {
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    border: 1px solid #ccc;
+}
+
+label{
+    font-weight: bold;
+}
+
+input{
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.inputs-container {
+    display: grid;
+}
+
+.Form button{
+    margin: 0 5px;
+    padding: 10px;
+    background-color: rgba(0, 0, 255, 0.7);
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+    margin-top: 15px;
+    float: right;
+}
+
+.Form button:hover{
+    margin: 0 5px;
+    padding: 10px;
+    background-color: rgba(0, 0, 245, 0.6);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    float: right;
+}

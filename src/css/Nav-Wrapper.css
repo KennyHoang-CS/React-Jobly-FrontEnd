@@ -1,0 +1,17 @@
+.Nav-Wrapper{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    background-color: white;
+}
+
+.Right-Links a {
+    margin: 25px;
+}
+
+.Left-Links a, .Right-Links a {
+    text-decoration: none;
+    color: rgba(0, 0, 255, 0.7)
+}
