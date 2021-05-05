@@ -2,11 +2,11 @@ import { BrowserRouter } from 'react-router-dom'
 import NavBar from './NavBar';
 import Routes from './Routes';
 
-function Home() {
+function Home({ login, signup }) {
     return (
         <BrowserRouter>
             <NavBar />
-            <Routes />
+            <Routes login={login} signup={signup} />
             {/*
             <SignUpForm />
             <LoginForm /> 

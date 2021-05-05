@@ -5,8 +5,8 @@ function Search({ setSearch, setSearchValues }) {
     
     const INITIAL_STATE = {
         name: '',
-        maxEmployees: null,
-        minEmployees: null
+        maxEmployees: '',
+        minEmployees: '' 
     }
 
     const [formData, setFormData] = useState(INITIAL_STATE);
@@ -21,9 +21,22 @@ function Search({ setSearch, setSearchValues }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        setSearchValues(formData);
+        setSearchValues(createSearchObject());
         setSearch(true);
         setFormData(INITIAL_STATE);
+    }
+
+    function createSearchObject() {
+        
+        let obj = {};
+        
+        for (const [key, value] of Object.entries(formData)) {
+            if (value !== '') {
+                obj[key] = value;
+            }
+        }
+
+        return obj;
     }
     
     return (

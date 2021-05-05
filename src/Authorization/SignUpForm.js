@@ -1,10 +1,11 @@
 import '../css/Form.css';
 
-function SignUpForm() {
+function SignUpForm({ signup }) {
+    
     return (
         <div className="Form-Container">
             <h1>Sign Up</h1>
-            <form className="Form">
+            <form className="Form" onSubmit={signup}>
                 <div className="inputs-container">
                     <label htmlFor="username">Username</label>
                     <input className="input"

@@ -1,10 +1,10 @@
 import '../css/Form.css';
 
-function LoginForm() {
+function LoginForm({ login }) {
     return (
         <div className="Form-Container">
             <h1>Log in</h1>
-            <form className="Form">
+            <form className="Form" onSubmit={login}>
                 <div className="inputs-container">
                     <label>Username</label>
                     <input className="input"
