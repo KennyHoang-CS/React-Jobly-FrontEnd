@@ -3,8 +3,8 @@ import GuestPage from './GuestPage';
 import LoginForm from './Authorization/LoginForm';
 import SignUpForm from './Authorization/SignUpForm';
 import Companies from './Companies/CompanyList';
-import FilterCompanies from './Companies/FilterCompanies';
-import Jobs from './Jobs/Jobs';
+import CompanyJobs from './Companies/CompanyJobs';
+import JobList from './Jobs/JobList';
 import EditProfile from './EditProfile';
 
 function Routes() {
@@ -22,11 +22,11 @@ function Routes() {
             <Route exact path="/companies">
                 <Companies />
             </Route>
-            <Route exact path="/companies/:code">
-                <FilterCompanies />
+            <Route exact path="/companies/:handle">
+                <CompanyJobs />
             </Route>
             <Route exact path="/jobs">
-                <Jobs />
+                <JobList />
             </Route>
             <Route exact path="/profile">
                 <EditProfile />

@@ -1,0 +1,11 @@
+.Company-Name {
+    margin-bottom: 8px;
+}
+
+.Company-Desc {
+    margin: 0 0;
+}
+
+.Company-Desc, .Company-Name {
+    font-weight: 400;
+}

@@ -1,0 +1,30 @@
+
+.Search{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px;
+}
+
+.Search-Submit {
+    padding: 5px;
+    background-color: rgba(0, 0, 255, 0.7);
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+    width: 100px;
+    height: 50px;
+    justify-self: end;
+}
+
+.Search-Submit:hover {
+    padding: 5px;
+    background-color: rgba(0, 0, 245, 0.6);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.Company-Label {
+    height: 20px;
+    transform: translateY(40px);
+}

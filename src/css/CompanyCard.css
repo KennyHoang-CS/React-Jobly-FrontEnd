@@ -1,0 +1,42 @@
+.Company-Card {
+    background-color: white;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+}
+
+.Company-Card:hover {
+    background-color: white;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+    color: rgb(63, 63, 192);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.Company-Header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Company-Header img {
+    width: 50px;
+    height: 50px;
+    margin-top: 13px;
+    outline: none;
+}
+
+.Company-Content {
+    margin: 15px 15px;
+    margin-top: 0;
+}
+
+.Company-Footer {
+    margin-top: 0px;
+    padding-bottom: 15px;
+}
+
+.Company-Content h3, h5 {
+    font-weight: 400;
+}
+

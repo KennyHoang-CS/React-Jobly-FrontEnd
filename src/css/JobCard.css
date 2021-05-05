@@ -1,0 +1,59 @@
+.Job-Container {
+    background-color: white;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+}
+
+.Job-Card {
+    margin-left: 23px;
+}
+
+.Job-Card .Job-Headers h3 {
+    font-weight: 400;
+    font-size: medium;
+}
+
+.Job-Content {
+    font-size: 15px;
+}
+
+.Apply-Container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 21px;
+    margin-right: 15px;
+}
+
+.Apply-Container input {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: rgba(214, 59, 59, 1);
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+}
+
+.Apply-Container input:hover {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: rgba(214, 59, 59, 0.7);
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.Equity {
+    margin: 0;
+}
+
+.Salary {
+    margin: 0;
+    margin-bottom: 7px;
+    margin-top: 20px;
+}
+
+.Job-Title {
+    margin-top: 20px;
+}
