@@ -14,6 +14,12 @@
     font-weight: 300;
 }
 
+.Guest-Message p {
+    text-align: center;
+    font-size: 27px;
+    margin-top: 0;
+}
+
 .Guest-Buttons {
     display: flex;
     justify-content: center;

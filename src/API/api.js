@@ -14,6 +14,10 @@ class JoblyApi {
     // the token for interactive with the API will be stored here.
     static token;
 
+    static async setToken (newToken) {
+        this.token = newToken;
+    }
+
     static async request(endpoint, data = {}, method = "get") {
         console.debug("API Call:", endpoint, data, method);
 
@@ -64,6 +68,31 @@ class JoblyApi {
         return res.jobs;
     }
 
+    /*******************************************************************
+     *  USERS related functions
+     *****************************************************************/
+
+
+    /** New User Register (non-admins) */
+    
+    static async userRegister(newUser) {
+        let res = await this.request(`auth/register`, newUser, "post")
+        return res.token;
+    }
+
+    /** User Validate */
+
+    static async userValidate(user) {
+        let res = await this.request(`auth/token`, user, "post");
+        return res.token;  
+    }
+
+    /** Get User Information */
+
+    static async getUser(username) {
+        let res = await this.request(`users/${username}`)
+        return res.user;
+    }
 
 
     // obviously, you'll add a lot here ...

@@ -7,17 +7,17 @@ import CompanyJobs from './Companies/CompanyJobs';
 import JobList from './Jobs/JobList';
 import EditProfile from './EditProfile';
 
-function Routes({ login, signup }) {
+function Routes() {
     return (
         <Switch>
             <Route exact path="/">
                 <GuestPage />
             </Route>
             <Route exact path="/login">
-                <LoginForm login={login} />
+                <LoginForm />
             </Route>
             <Route exact path="/signup">
-                <SignUpForm signup={signup} />
+                <SignUpForm />
             </Route>
             <Route exact path="/companies">
                 <Companies />

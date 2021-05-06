@@ -1,15 +1,18 @@
 import './css/GuestPage.css';
-import React from 'react';
+import React, { useContext } from 'react';
+import GuestButtons from './GuestButtons';
+import userContext from './userContext';
 
 function GuestPage() {
+    
+    const { currentUser } = useContext(userContext);
+
     return (
         <div className="Guest-Message">
             <h1>Jobly</h1>
             <h3>All the jobs in one, convenient place.</h3>
-            <div className="Guest-Buttons">
-                <button>Log in</button>
-                <button>Sign up</button>
-            </div>
+            {!currentUser.username && <GuestButtons />}
+            {currentUser.username && <p>Welcome Back, {currentUser.username}!</p>}
         </div>
 
     )
