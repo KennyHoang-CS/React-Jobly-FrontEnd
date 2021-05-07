@@ -5,8 +5,14 @@ import Companies from './Companies/CompanyList';
 import CompanyJobs from './Companies/CompanyJobs';
 import JobList from './Jobs/JobList';
 import UserForm from "./Authorization/UserForm";
+import { useContext } from "react";
+import userContext from "./userContext";
+
 
 function Routes() {
+    
+    const { token } = useContext(userContext);
+
     return (
         <Switch>
             <Route exact path="/">
@@ -19,16 +25,20 @@ function Routes() {
                 <UserForm />
             </Route>
             <Route exact path="/companies">
-                <Companies />
+                {token && <Companies />}
+                {!token && <GuestPage />}
             </Route>
             <Route exact path="/companies/:handle">
-                <CompanyJobs />
+                {token && <CompanyJobs />}
+                {!token && <GuestPage />}
             </Route>
             <Route exact path="/jobs">
-                <JobList />
+                {token && <JobList />}
+                {!token && <GuestPage />}
             </Route>
             <Route exact path="/profile">
-                <UserForm />
+                {token && <UserForm />}
+                {!token && <GuestPage />}
             </Route>
         </Switch>
     )
