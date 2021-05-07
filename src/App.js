@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import Home from './Home';
 import UserContext from './userContext';
 import JoblyApi from './API/api';
-import { Redirect, Switch, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import useLocalStorageState from './hooks/useLocalStorageState';
 
 function App() {
 
@@ -15,8 +16,9 @@ function App() {
     applications: []
   }
 
-  const [token, setToken] = useState('');
-  const [currentUser, setCurrentUser] = useState(INITIAL_USER_STATE);
+  const [token, setToken] = useLocalStorageState("token", "");
+  const [currentUser, setCurrentUser] = useLocalStorageState("currentUser", INITIAL_USER_STATE);
+  
   const [updateStatus, setUpdateStatus] = useState(false);
   const history = useHistory();
 

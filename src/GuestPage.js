@@ -5,14 +5,14 @@ import userContext from './userContext';
 
 function GuestPage() {
     
-    const { currentUser } = useContext(userContext);
+    const { token, currentUser } = useContext(userContext);
 
     return (
         <div className="Guest-Message">
             <h1>Jobly</h1>
             <h3>All the jobs in one, convenient place.</h3>
-            {!currentUser.username && <GuestButtons />}
-            {currentUser.username && <p>Welcome Back, {currentUser.firstName}!</p>}
+            {!token && <GuestButtons />}
+            {token && <p>Welcome Back, {currentUser.firstName}!</p>}
         </div>
 
     )
