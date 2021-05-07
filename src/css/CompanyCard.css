@@ -27,7 +27,7 @@
 }
 
 .Company-Content {
-    margin: 15px 15px;
+    margin: 15px 20px;
     margin-top: 0;
 }
 
@@ -40,3 +40,7 @@
     font-weight: 400;
 }
 
+.Company-Link {
+    text-decoration: none;
+    color: black;
+}

@@ -31,6 +31,7 @@
     border-radius: 5px;
     color: white;
     font-weight: bolder;
+    width: 80px;
 }
 
 .Apply-Container input:hover {

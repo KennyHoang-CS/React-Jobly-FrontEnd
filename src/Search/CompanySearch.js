@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import '../css/Search.css';
+import createSearchObject from './helper';
 
-function Search({ setSearch, setSearchValues }) {
+function CompanySearch({ setCompanySearch, setCompanySearchValues }) {
     
     const INITIAL_STATE = {
         name: '',
         maxEmployees: '',
         minEmployees: '' 
     }
-
+    
     const [formData, setFormData] = useState(INITIAL_STATE);
 
     function handleChange(e) {
@@ -21,26 +22,12 @@ function Search({ setSearch, setSearchValues }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        setSearchValues(createSearchObject());
-        setSearch(true);
+        setCompanySearchValues(createSearchObject(formData));
+        setCompanySearch(true);
         setFormData(INITIAL_STATE);
     }
 
-    function createSearchObject() {
-        
-        let obj = {};
-        
-        for (const [key, value] of Object.entries(formData)) {
-            if (value !== '') {
-                obj[key] = value;
-            }
-        }
-
-        return obj;
-    }
-    
     return (
-
         <form className="Search" onSubmit={handleSubmit}>
             <label className="Company-Label">Company Name</label>
             <input className="Search-Input"
@@ -75,4 +62,4 @@ function Search({ setSearch, setSearchValues }) {
     )
 }
 
-export default Search;
+export default CompanySearch;

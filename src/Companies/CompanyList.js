@@ -1,31 +1,36 @@
 import JoblyApi from '../API/api'
 import React, { useEffect, useState } from 'react';
 import CompanyCard from './CompanyCard';
-import Search from '../Search/Search';
+import CompanySearch from '../Search/CompanySearch';
 import '../css/CompanyList.css';
 
 function CompanyList() {
     
     const [companies, setCompanies] = useState([]);
-    const [hasSearch, setSearch] = useState(false);
-    const [searchValues, setSearchValues] = useState({});
-    
+    const [hasCompanySearch, setCompanySearch] = useState(false);
+    const [searchCompanyValues, setCompanySearchValues] = useState({});
     
     useEffect(() => {
-        async function getCompaniesData() {
-            let data = await JoblyApi.getCompanyList(searchValues);
+        async function getCompaniesDataWithSearch() {
+            let data = await JoblyApi.getCompanyList(searchCompanyValues);
             setCompanies(data);
         }
-        getCompaniesData();
-        setSearch(false);
-    }, [hasSearch])
+        getCompaniesDataWithSearch();
+        setCompanySearch(false);
+    }, [hasCompanySearch === true])
 
-    //debugger;
+    useEffect(() => {
+        async function getCompaniesDataWithoutSearch() {
+            let data = await JoblyApi.getCompanyList();
+            setCompanies(data);
+        }
+        getCompaniesDataWithoutSearch();
+    }, [])
 
     return (
         <div className="Cards-Container">
-            <Search setSearch={setSearch} setSearchValues={setSearchValues} />
-            {companies.map(c => <CompanyCard name={c.name} description={c.description} logoUrl={c.logoUrl}/>)}
+            <CompanySearch setCompanySearch={setCompanySearch} setCompanySearchValues={setCompanySearchValues}/>
+            {companies.map(c => <CompanyCard name={c.name} handle={c.handle} description={c.description} logoUrl={c.logoUrl}/>)}
         </div>
     )
 }

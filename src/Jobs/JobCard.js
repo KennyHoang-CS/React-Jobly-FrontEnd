@@ -1,6 +1,15 @@
+import React, { useState } from 'react';
 import '../css/JobCard.css';
 
+
 function JobCard({ title, salary, equity, companyName }) {
+
+    const [hasApplied, setApplied] = useState(false);
+
+    function applyToggle() {
+        setApplied(hasApplied => !hasApplied);
+    }
+
     return (
         <div className="Job-Container">
             <div className="Job-Card">
@@ -13,10 +22,18 @@ function JobCard({ title, salary, equity, companyName }) {
                     <h5 className="Equity">Equity: {equity}</h5>
                 </div>
                 <div className="Apply-Container">
-                    <input 
+                    {!hasApplied && 
+                    <input onClick={applyToggle}
                         type="submit"
                         value="APPLY"
                     />
+                    }
+                    {hasApplied && 
+                    <input onClick={applyToggle}
+                        type="submit"
+                        value="APPLIED"
+                    />
+                    }
                 </div>
             </div>
         </div>

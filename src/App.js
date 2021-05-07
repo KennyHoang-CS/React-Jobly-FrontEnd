@@ -18,8 +18,9 @@ function App() {
 
   const [token, setToken] = useLocalStorageState("token", "");
   const [currentUser, setCurrentUser] = useLocalStorageState("currentUser", INITIAL_USER_STATE);
+  const [hasSearch, setSearch] = useState(false);
+  const [searchValues, setSearchValues] = useState({});
   
-  const [updateStatus, setUpdateStatus] = useState(false);
   const history = useHistory();
 
   const userFunctions = {
@@ -28,8 +29,7 @@ function App() {
     logout: logout, 
     update: update,
     token: token,
-    currentUser: currentUser,
-    updateStatus: updateStatus
+    currentUser: currentUser
   }
 
   async function login(user) {
@@ -79,8 +79,6 @@ function App() {
   return (
     <div>
       <UserContext.Provider value={userFunctions}>
-        <p>TOKEN IS: {token}</p>
-        <p>Username is: {currentUser.firstName}</p>
         <Home /> 
       </UserContext.Provider> 
     </div>
