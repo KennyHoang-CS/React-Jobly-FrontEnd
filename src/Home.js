@@ -4,7 +4,7 @@ import Routes from './Routes';
 
 function Home() {
     return (
-        <BrowserRouter>
+        <>
             <NavBar />
             <Routes />
             {/*
@@ -13,7 +13,7 @@ function Home() {
             <GuestPage />
             <Routes />
             */}
-        </BrowserRouter>  
+        </>  
     )
 }
 

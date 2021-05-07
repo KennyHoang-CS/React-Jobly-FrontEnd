@@ -1,11 +1,10 @@
 import { Switch, Route } from "react-router";
 import GuestPage from './GuestPage';
 import LoginForm from './Authorization/LoginForm';
-import SignUpForm from './Authorization/SignUpForm';
 import Companies from './Companies/CompanyList';
 import CompanyJobs from './Companies/CompanyJobs';
 import JobList from './Jobs/JobList';
-import EditProfile from './EditProfile';
+import UserForm from "./Authorization/UserForm";
 
 function Routes() {
     return (
@@ -17,7 +16,7 @@ function Routes() {
                 <LoginForm />
             </Route>
             <Route exact path="/signup">
-                <SignUpForm />
+                <UserForm />
             </Route>
             <Route exact path="/companies">
                 <Companies />
@@ -29,7 +28,7 @@ function Routes() {
                 <JobList />
             </Route>
             <Route exact path="/profile">
-                <EditProfile />
+                <UserForm />
             </Route>
         </Switch>
     )

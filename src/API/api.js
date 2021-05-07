@@ -38,7 +38,10 @@ class JoblyApi {
         }
     }
 
-    // Individual API routes
+    /*******************************************************************
+     *  COMPANIES related functions
+     *****************************************************************/
+
 
     /** Get details on a company by handle. */
 
@@ -90,12 +93,18 @@ class JoblyApi {
     /** Get User Information */
 
     static async getUser(username) {
-        let res = await this.request(`users/${username}`)
+        let res = await this.request(`users/${username}`);
         return res.user;
     }
 
+    /** User Data Update */
 
-    // obviously, you'll add a lot here ...
+    static async updateUser(username, userData) {
+        console.log('user data is: ', userData)
+        let res = await this.request(`users/${username}`, userData, "patch");
+        return res.user;
+    }
+
 }
 
 export default JoblyApi;

@@ -19,7 +19,7 @@ function UserNav() {
                 <NavLink to="/profile">Profile</NavLink>
             </Route>
             <Route>
-                <NavLink to="/" onClick={logout}>Log out, {currentUser.username}</NavLink>
+                <NavLink to="/" onClick={logout}>Log out, {currentUser.firstName}</NavLink>
             </Route>
         </div>
     )

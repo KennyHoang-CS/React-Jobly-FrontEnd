@@ -1,11 +1,15 @@
 .Form-Container{
     display: grid;
     justify-content: center;
-    margin-top: 20px;
+    margin: 25px 0;
 }
 
 .Form-Container h1 {
     font-weight: 400;
+}
+
+.Form-Container h5 {
+    margin: 0 0;
 }
 
 .Form {
@@ -52,4 +56,26 @@ input{
     cursor: pointer;
     margin-top: 15px;
     float: right;
+}
+
+.Save-Changes-Btn {
+    width: 100%;
+    transform: translateX(4px);
+}
+
+.alert-box {
+    padding: 12px;
+    padding-left: 24px;
+    border-radius: 5px;
+    font-weight: 300;
+    font-size: medium;
+    margin: 12px 0;
+}
+
+.danger {
+    background-color: rgba(245, 171, 171, 0.6);
+}
+
+.success {
+    background-color: rgb(221, 241, 221);
 }

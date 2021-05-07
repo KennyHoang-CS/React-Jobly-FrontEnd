@@ -12,7 +12,7 @@ function GuestPage() {
             <h1>Jobly</h1>
             <h3>All the jobs in one, convenient place.</h3>
             {!currentUser.username && <GuestButtons />}
-            {currentUser.username && <p>Welcome Back, {currentUser.username}!</p>}
+            {currentUser.username && <p>Welcome Back, {currentUser.firstName}!</p>}
         </div>
 
     )

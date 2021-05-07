@@ -17,14 +17,17 @@ function App() {
 
   const [token, setToken] = useState('');
   const [currentUser, setCurrentUser] = useState(INITIAL_USER_STATE);
+  const [updateStatus, setUpdateStatus] = useState(false);
   const history = useHistory();
 
   const userFunctions = {
     register: register,
     login: login,
     logout: logout, 
+    update: update,
     token: token,
-    currentUser: currentUser
+    currentUser: currentUser,
+    updateStatus: updateStatus
   }
 
   async function login(user) {
@@ -39,7 +42,7 @@ function App() {
     }
 
     // after user logs in, go back to home page. 
-    history.push("/")
+    history.push("/");
   }
 
   async function logout() {
@@ -54,11 +57,28 @@ function App() {
     setToken(newToken);
   }
 
+  async function update(userData, token) {
+    setToken(token);
+    await JoblyApi.setToken(token);
+    let updatedUser = await JoblyApi.updateUser(currentUser.username, userData);
+    let newUser = {
+      username: updatedUser.username,
+      firstName: updatedUser.firstName,
+      lastName: updatedUser.lastName,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+      applications: currentUser.applications
+    }
+    setCurrentUser(newUser);
+    history.push('/');
+  }
+
+
   return (
     <div>
       <UserContext.Provider value={userFunctions}>
         <p>TOKEN IS: {token}</p>
-        <p>Username is: {currentUser.email}</p>
+        <p>Username is: {currentUser.firstName}</p>
         <Home /> 
       </UserContext.Provider> 
     </div>
