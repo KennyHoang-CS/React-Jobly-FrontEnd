@@ -19,9 +19,9 @@ function UserNav() {
                 <Route>
                     <NavLink to="/profile">Profile</NavLink>
                 </Route>
-                </span>
+            </span>
             <Route>
-                <NavLink to="/" className="Log-Out" onClick={logout}>Log out, {currentUser.username}</NavLink>
+                <NavLink to="/" className="Log-Out-Link" onClick={logout}>Log out, {currentUser.username}</NavLink>
             </Route>
         </div>
     )

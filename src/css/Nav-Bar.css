@@ -3,12 +3,13 @@
     justify-content: space-between;
     font-size: 1.2rem;
     padding: 15px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #ccc;
     background-color: white;
 }
 
 .Right-Links a {
-    margin: 25px;;
+    margin: 25px;
 }
 
 .Left-Links a:hover, .Right-Links a:hover {
@@ -25,4 +26,42 @@
 .User-Nav-Links a.active {
     color: rgba(30, 144, 255, 1);
     font-weight: 700;
+}
+
+@media only screen and (max-width: 600px){
+
+    .Nav-Wrapper{
+        height: 165px;
+    }
+
+    .Right-Links {
+        display: grid;
+        grid-template-rows: 55px 55px;
+        margin-top: 40px;
+    }
+
+    .Right-Links a {
+        margin-top: 0;
+    }
+
+    .User-Nav-Links{
+        display: grid;
+        font-size: 18px;
+        justify-content: end;
+    }
+
+    .User-Nav-Links a{
+        margin-top: 5px;
+        margin-bottom: 8px;
+    }
+
+    .Log-Out-Link {
+        transform: translateY(-18px);
+    }
+
+    .Left-Links {
+        padding-top: 12%;
+        padding-left: 2%;
+    }
+
 }

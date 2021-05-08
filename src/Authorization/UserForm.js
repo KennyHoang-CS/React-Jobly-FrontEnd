@@ -2,6 +2,7 @@ import '../css/Form.css';
 import React, { useState, useContext } from 'react';
 import userContext from '../Context/userContext';
 import JoblyApi from '../API/api';
+import { useHistory } from 'react-router-dom';
 
 function UserForm() {
     
@@ -24,6 +25,7 @@ function UserForm() {
     const [hasError, setHasError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [hasUpdated, setHasUpdated] = useState(false);
+    const history = useHistory();
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -37,6 +39,7 @@ function UserForm() {
         e.preventDefault();
         if (!currentUser.username) {
             register(userFormData);
+            history.push('/');
         }
         if (currentUser.username) {
             let data = {

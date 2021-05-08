@@ -3,3 +3,11 @@
     margin: 0 17%;
     margin-top: 5vh;
 }
+
+@media only screen and (max-width: 600px){ 
+
+    .Cards-Container {
+        display: grid;
+        margin: 0 3%;
+    }
+}

@@ -8,7 +8,7 @@ function HomePage() {
     const { token, currentUser } = useContext(userContext);
 
     return (
-        <div className="Guest-Message">
+        <div className="Home-Container">
             <div className="Cover-Image" style={{ backgroundImage: "url(/logos/cover.jpg)"}}></div>
             <div class="Cover-Message">
                 <h1>Jobly</h1>
