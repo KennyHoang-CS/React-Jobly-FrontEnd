@@ -18,7 +18,7 @@ function NavBar() {
                         <NavLink to="/">Jobly</NavLink>
                     </Route>
                 </div>
-                {!token && <GuestNav />}
+                {!token && <GuestNav token={token} />}
                 {token && <UserNav />}
             </div>
         </div>

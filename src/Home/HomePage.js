@@ -10,7 +10,7 @@ function HomePage() {
     return (
         <div className="Home-Container">
             <div className="Cover-Image" style={{ backgroundImage: "url(/logos/cover.jpg)"}}></div>
-            <div class="Cover-Message">
+            <div className="Cover-Message">
                 <h1>Jobly</h1>
                 <h3>All the jobs in one, convenient place.</h3>
                 {!token && <GuestButtons />}

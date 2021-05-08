@@ -18,9 +18,6 @@ function App() {
 
   const [token, setToken] = useLocalStorageState("token", "");
   const [currentUser, setCurrentUser] = useLocalStorageState("currentUser", INITIAL_USER_STATE);
-  const [hasSearch, setSearch] = useState(false);
-  const [searchValues, setSearchValues] = useState({});
-  
   const history = useHistory();
 
   const userFunctions = {
