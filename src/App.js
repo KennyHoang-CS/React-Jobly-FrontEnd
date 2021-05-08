@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Home from './Home/Home';
 import UserContext from './Context/userContext';
 import JoblyApi from './API/api';

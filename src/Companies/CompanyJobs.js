@@ -23,7 +23,7 @@ function CompanyJobs() {
             setCompanyName(data.name);
         }
         getCompanyJobs();
-    }, [])
+    }, [handle])
 
     return (
         <div className="Cards-Container">

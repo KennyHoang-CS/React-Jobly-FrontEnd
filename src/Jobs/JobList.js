@@ -27,7 +27,7 @@ function JobList() {
         }
         getJobsDataWithSearch();
         setJobSearch(false);
-    }, [hasJobSearch === true])
+    }, [hasJobSearch === true, searchJobValues])
 
     // User wants to search for jobs without filters, so use this effect. 
     useEffect(() => {

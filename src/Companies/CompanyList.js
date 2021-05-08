@@ -30,7 +30,7 @@ function CompanyList() {
         }
         getCompaniesDataWithSearch();
         setCompanySearch(false);
-    }, [hasCompanySearch === true])
+    }, [hasCompanySearch === true, searchCompanyValues])
 
     // User doesn't want to search, so use this effect. 
     useEffect(() => {

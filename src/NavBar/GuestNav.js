@@ -6,10 +6,10 @@ function GuestNav() {
     return (
         <div className="Right-Links">
             <Route>
-                <NavLink to="/login">Login</NavLink>
+                <NavLink exact to="/login">Login</NavLink>
             </Route>
             <Route>
-                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink exact to="/signup">Sign Up</NavLink>
             </Route>
         </div>
     )

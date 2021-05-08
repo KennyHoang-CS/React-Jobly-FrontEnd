@@ -12,13 +12,13 @@ function UserNav() {
         <div className="Right-Links">
             <span className="User-Nav-Links">
                 <Route>
-                    <NavLink to="/companies">Companies</NavLink>
+                    <NavLink exact to="/companies">Companies</NavLink>
                 </Route>
                 <Route>
-                    <NavLink to="/jobs">Jobs</NavLink>
+                    <NavLink exact to="/jobs">Jobs</NavLink>
                 </Route>
                 <Route>
-                    <NavLink to="/profile">Profile</NavLink>
+                    <NavLink exact to="/profile">Profile</NavLink>
                 </Route>
             </span>
             <Route>
