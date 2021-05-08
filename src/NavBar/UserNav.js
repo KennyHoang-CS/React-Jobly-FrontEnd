@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { NavLink, Route } from 'react-router-dom';
-import userContext from '../userContext';
+import userContext from '../Context/userContext';
 
 
 function UserNav() {
@@ -9,17 +9,19 @@ function UserNav() {
     
     return (
         <div className="Right-Links">
+            <span className="User-Nav-Links">
+                <Route>
+                    <NavLink to="/companies">Companies</NavLink>
+                </Route>
+                <Route>
+                    <NavLink to="/jobs">Jobs</NavLink>
+                </Route>
+                <Route>
+                    <NavLink to="/profile">Profile</NavLink>
+                </Route>
+                </span>
             <Route>
-                <NavLink to="/companies">Companies</NavLink>
-            </Route>
-            <Route>
-                <NavLink to="/jobs">Jobs</NavLink>
-            </Route>
-            <Route>
-                <NavLink to="/profile">Profile</NavLink>
-            </Route>
-            <Route>
-                <NavLink to="/" onClick={logout}>Log out, {currentUser.username}</NavLink>
+                <NavLink to="/" className="Log-Out" onClick={logout}>Log out, {currentUser.username}</NavLink>
             </Route>
         </div>
     )

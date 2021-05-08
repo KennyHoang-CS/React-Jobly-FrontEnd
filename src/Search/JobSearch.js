@@ -51,7 +51,7 @@ function JobSearch({ setJobSearch, setSearchJobValues}) {
             <input className="Search-Input"
                 type="text"
                 name="hasEquity"
-                placeholder="(Optional) Enter a positive number to search by equity.."
+                placeholder="(Optional) Enter a positive number to search jobs with equity.."
                 onChange={handleChange}
                 value={formData.hasEquity}
             />

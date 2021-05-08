@@ -1,6 +1,6 @@
 import '../css/Form.css';
 import React, { useState, useContext } from 'react';
-import userContext from '../userContext';
+import userContext from '../Context/userContext';
 import JoblyApi from '../API/api';
 
 function UserForm() {

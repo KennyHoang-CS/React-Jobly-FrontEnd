@@ -1,6 +1,7 @@
 import '../css/Form.css';
 import React, { useState, useContext } from 'react';
-import userContext from '../userContext';
+import userContext from '../Context/userContext';
+import JoblyApi from '../API/api';
 
 function LoginForm() {
     
@@ -9,7 +10,9 @@ function LoginForm() {
         password: ''
     }
 
-    const [loginFormData, setLoginFormData] = useState(INITIAL_STATE);    
+    const [loginFormData, setLoginFormData] = useState(INITIAL_STATE);   
+    const [hasError, setHasError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(''); 
     const { login } = useContext(userContext);
 
     function handleChange(e) {
@@ -20,10 +23,22 @@ function LoginForm() {
         }))
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        login(loginFormData);
-        setLoginFormData(INITIAL_STATE);
+        
+        try {
+            let user = {
+                username: loginFormData.username,
+                password: loginFormData.password
+            }
+            let newToken = await JoblyApi.userValidate(user);
+            login(loginFormData, newToken);
+            setLoginFormData(INITIAL_STATE);
+        } catch (err) {
+            setHasError(true);
+            setErrorMessage(err);
+        }
+        
     }
 
     return (
@@ -48,6 +63,7 @@ function LoginForm() {
                         onChange={handleChange}
                     />
                 </div>
+                {hasError && <div className="alert-box danger">{errorMessage}</div>}
                 <button>Submit</button>
             </form>
         </div>

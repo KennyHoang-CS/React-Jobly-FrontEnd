@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Home from './Home';
-import UserContext from './userContext';
+import React, { useState } from 'react';
+import Home from './Home/Home';
+import UserContext from './Context/userContext';
 import JoblyApi from './API/api';
 import { useHistory } from 'react-router-dom';
 import useLocalStorageState from './hooks/useLocalStorageState';
@@ -32,8 +32,7 @@ function App() {
     currentUser: currentUser
   }
 
-  async function login(user) {
-    let newToken = await JoblyApi.userValidate(user);
+  async function login(user, newToken) {
     
     if (newToken) {
       await JoblyApi.setToken(newToken);
