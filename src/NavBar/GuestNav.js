@@ -1,5 +1,6 @@
 import { NavLink, Route } from 'react-router-dom';
 
+/** Guest Users will only see these links until they login or sign up. */
 
 function GuestNav() {
     return (

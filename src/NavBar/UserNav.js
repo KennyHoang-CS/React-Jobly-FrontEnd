@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import userContext from '../Context/userContext';
 
+/** User will see new links when logged in or registered. */
 
 function UserNav() {
     

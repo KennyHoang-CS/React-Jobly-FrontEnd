@@ -1,3 +1,6 @@
+
+/** Get each form field if they are not empty. */
+
 function createSearchObject(formData) {
         
     let obj = {};

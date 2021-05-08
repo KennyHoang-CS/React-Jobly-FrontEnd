@@ -4,8 +4,10 @@ import '../css/JobCard.css';
 
 function JobCard({ title, salary, equity, companyName }) {
 
+    // The state to see if user has applied to that job or not. 
     const [hasApplied, setApplied] = useState(false);
 
+    // The toggle to switch between 'APPLY' and 'APPLIED' for the job. 
     function applyToggle() {
         setApplied(hasApplied => !hasApplied);
     }

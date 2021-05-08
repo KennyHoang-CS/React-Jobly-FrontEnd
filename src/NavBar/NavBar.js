@@ -3,13 +3,11 @@ import { NavLink, Route } from 'react-router-dom';
 import "../css/Nav-Bar.css";
 import GuestNav from './GuestNav';
 import UserNav from './UserNav';
-import userContext from '../Context/userContext';
 
 
 function NavBar() {
     
-    const { token } = useContext(userContext);
-    
+    // token is used to determine if user is logged in or not. 
     return (
         <div className="Nav-Bar">
             <div className="Nav-Wrapper">
@@ -18,7 +16,7 @@ function NavBar() {
                         <NavLink to="/">Jobly</NavLink>
                     </Route>
                 </div>
-                {!token && <GuestNav token={token} />}
+                {!token && <GuestNav />}   
                 {token && <UserNav />}
             </div>
         </div>

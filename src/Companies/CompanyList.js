@@ -7,11 +7,21 @@ import '../css/CompanyList.css';
 
 function CompanyList() {
     
+    // The state to hold the list of companies. 
     const [companies, setCompanies] = useState([]);
+    
+    // The state to determine if user is searching for companies.
+    // True >> they are searching by filters
+    // False >> they are searching without filters.  
     const [hasCompanySearch, setCompanySearch] = useState(false);
+    
+    // The state to hold company search filters. 
     const [searchCompanyValues, setCompanySearchValues] = useState({});
+    
+    // The loading spinner to display if company list is still being retrieved from server. 
     const [isLoading, setIsLoading] = useState(true);
     
+    // User wants to search, so use this effect. 
     useEffect(() => {
         async function getCompaniesDataWithSearch() {
             let data = await JoblyApi.getCompanyList(searchCompanyValues);
@@ -22,6 +32,7 @@ function CompanyList() {
         setCompanySearch(false);
     }, [hasCompanySearch === true])
 
+    // User doesn't want to search, so use this effect. 
     useEffect(() => {
         async function getCompaniesDataWithoutSearch() {
             let data = await JoblyApi.getCompanyList();

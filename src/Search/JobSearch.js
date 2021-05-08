@@ -2,15 +2,20 @@ import React, { useState } from 'react';
 import '../css/Search.css';
 import createSearchObject from './helper';
 
+
 function JobSearch({ setJobSearch, setSearchJobValues}) {
+    
+    // The state to hold default job search field values. 
     const INITIAL_STATE = {
         minSalary: '',
         title: '',
         hasEquity: '' 
     }
 
+    // State to hold form data. 
     const [formData, setFormData] = useState(INITIAL_STATE);
 
+    // To change the state of form data. 
     function handleChange(e) {
         const { name, value } = e.target;
         setFormData(formData => ({
@@ -19,11 +24,13 @@ function JobSearch({ setJobSearch, setSearchJobValues}) {
         }))
     }
 
+    // To handle submission of job searches form. 
     function handleSubmit(e) {
         e.preventDefault();
+        // Create object of search filters, if there is any. 
         setSearchJobValues(createSearchObject(formData));
-        setJobSearch(true);
-        setFormData(INITIAL_STATE);
+        setJobSearch(true);     // user wants to search, so job search status >> TRUE. 
+        setFormData(INITIAL_STATE); // reset back to initial search form state. 
     }
     
     return (

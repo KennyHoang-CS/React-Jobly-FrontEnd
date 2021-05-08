@@ -11,6 +11,8 @@ import userContext from "../Context/userContext";
 
 function Routes() {
     
+    // token is used to protect routes, which would require a user to be logged in
+    //  first before accessing those routes. 
     const { token } = useContext(userContext);
 
     return (

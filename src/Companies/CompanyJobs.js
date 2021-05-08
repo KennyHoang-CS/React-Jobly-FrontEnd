@@ -4,6 +4,8 @@ import JoblyApi from '../API/api';
 import JobCard from '../Jobs/JobCard';
 import "../css/CompanyJobs.css";
 
+/** Display the company's list of jobs. */
+
 function CompanyJobs() {
     
     const [companyJobs, setCompanyJobs] = useState([]);

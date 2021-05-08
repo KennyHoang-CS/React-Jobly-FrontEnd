@@ -6,11 +6,19 @@ import LoadingSpinner from '../MISC/LoadingSpinner';
 
 function JobList() {
     
+    // The state to hold list of jobs. 
     const [jobs, setJobs] = useState([]); 
+
+    // The state if user is searching jobs by filters. 
     const [hasJobSearch, setJobSearch] = useState(false);
+
+    // The state to hold users' jobs' search filters. 
     const [searchJobValues, setSearchJobValues] = useState({});
+    
+    // Loading spinner state to determine if jobs data is still being retrieved. 
     const [isLoading, setIsLoading] = useState(true);
 
+    // User wants to search for jobs using filters, so use this effect. 
     useEffect(() => {
         async function getJobsDataWithSearch() {
             let data = await JoblyApi.getJobsList(searchJobValues);
@@ -21,6 +29,7 @@ function JobList() {
         setJobSearch(false);
     }, [hasJobSearch === true])
 
+    // User wants to search for jobs without filters, so use this effect. 
     useEffect(() => {
         async function getJobsDataWithoutSearch() {
             let data = await JoblyApi.getJobsList();

@@ -7,6 +7,7 @@ import useLocalStorageState from './hooks/useLocalStorageState';
 
 function App() {
 
+  // State to hold current user data. 
   const INITIAL_USER_STATE = {
     username: '',
     firstName: '',
@@ -16,10 +17,16 @@ function App() {
     applications: []
   }
 
+  // useLocalStorageState() is a custom hook to return useState() object. 
+  // State to hold the token used throughout the app for user verification.
   const [token, setToken] = useLocalStorageState("token", "");
+  // State to hold current user data. 
   const [currentUser, setCurrentUser] = useLocalStorageState("currentUser", INITIAL_USER_STATE);
+  
+  // History object used to go back to home page. 
   const history = useHistory();
 
+  // List of user functions used throughout the entire app via useContext().
   const userFunctions = {
     register: register,
     login: login,
@@ -29,6 +36,7 @@ function App() {
     currentUser: currentUser
   }
 
+  /** Handle user logins. */
   async function login(user, newToken) {
     
     if (newToken) {
@@ -43,22 +51,33 @@ function App() {
     history.push("/");
   }
 
+  /** Handle user logouts. */
   async function logout() {
     await JoblyApi.setToken(token);
     setToken('');
     setCurrentUser(INITIAL_USER_STATE);
   }
 
+  /** Handle user registers. */
   async function register(newUser) {
     setCurrentUser(newUser);
     let newToken = await JoblyApi.userRegister(newUser);
     setToken(newToken);
   }
 
+  /** Handle user updates of their data */
   async function update(userData, token) {
+    
+    // updating requires the current user token, so make a copy in JoblyApi
+    // and token state. JoblyApi uses token to talk to backend. 
+    // Token state is used in frontend to talk with other requests. 
     setToken(token);
     await JoblyApi.setToken(token);
+    
+    // update the user. 
     let updatedUser = await JoblyApi.updateUser(currentUser.username, userData);
+    
+    // create new user out from the current user with their new updated data. 
     let newUser = {
       username: updatedUser.username,
       firstName: updatedUser.firstName,
@@ -67,10 +86,10 @@ function App() {
       isAdmin: updatedUser.isAdmin,
       applications: currentUser.applications
     }
+    // set the currentUser state to hold the new user updated data and go back to home. 
     setCurrentUser(newUser);
     history.push('/');
   }
-
 
   return (
     <div>

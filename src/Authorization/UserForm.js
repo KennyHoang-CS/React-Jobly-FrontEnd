@@ -8,6 +8,8 @@ function UserForm() {
     
     const { register, currentUser, update } = useContext(userContext);
 
+    // Initial state set to two different objects, if the user is signing up
+    //  updating their profile information. 
     const INITIAL_STATE = {
         username: '',
         password: '',
@@ -21,12 +23,17 @@ function UserForm() {
         email: currentUser.email
     }
 
+    // The state to hold user form data. 
     const [userFormData, setUserFormData] = useState(INITIAL_STATE);
+    // The state to handle the errors. 
     const [hasError, setHasError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    // The state to see if user is updating their profile. 
     const [hasUpdated, setHasUpdated] = useState(false);
+    // Create a history object, so we can go back to home page via signing up / update. 
     const history = useHistory();
 
+    // Needed to change the state of form data. 
     function handleChange(e) {
         const { name, value } = e.target;
         setUserFormData(userFormData => ({
@@ -35,13 +42,16 @@ function UserForm() {
         }))
     }
 
+    // Handle form submission whether its signing up or updating profile. 
     async function handleSubmit(e) {
         e.preventDefault();
-        if (!currentUser.username) {
+        if (!currentUser.username) {    // user is registering if username isnt found.
             register(userFormData);
-            history.push('/');
+            history.push('/');  
         }
-        if (currentUser.username) {
+        if (currentUser.username) { // user is updating their profile if username is found.
+            
+            // Create the user data object, and determine field inputs. 
             let data = {
                 password: userFormData.password,
                 firstName: userFormData.firstName || currentUser.firstName,
@@ -49,6 +59,7 @@ function UserForm() {
                 email: userFormData.email || currentUser.email
             }
             
+            // Validate the user password. 
             try{   
                 let userToken = await JoblyApi.userValidate({username: currentUser.username, password: data.password});
     
@@ -67,6 +78,10 @@ function UserForm() {
     }
 
     return (
+        
+        // Form will display either as: registering / updating profile
+        // depending if the user is signed in or not. 
+
         <div className="Form-Container">
             {!currentUser.username && <h1>Sign Up</h1>}
             {currentUser.username && <h1>Profile</h1>}

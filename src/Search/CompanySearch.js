@@ -4,14 +4,17 @@ import createSearchObject from './helper';
 
 function CompanySearch({ setCompanySearch, setCompanySearchValues }) {
     
+    // State to hold company search filters. 
     const INITIAL_STATE = {
         name: '',
         maxEmployees: '',
         minEmployees: '' 
     }
     
+    // State to hold form data. 
     const [formData, setFormData] = useState(INITIAL_STATE);
 
+    // To change the form data state. 
     function handleChange(e) {
         const { name, value } = e.target;
         setFormData(formData => ({
@@ -20,10 +23,14 @@ function CompanySearch({ setCompanySearch, setCompanySearchValues }) {
         }))
     }
 
+    // To handle company search form submission. 
     function handleSubmit(e) {
         e.preventDefault();
+        // Create the object of search filters.
         setCompanySearchValues(createSearchObject(formData));
-        setCompanySearch(true);
+        // User wants to search by filters, so change search state >> TRUE 
+        setCompanySearch(true); 
+        // Reset form data back to initial default values. 
         setFormData(INITIAL_STATE);
     }
 
