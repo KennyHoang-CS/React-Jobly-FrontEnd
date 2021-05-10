@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 function UserForm() {
     
-    const { register, currentUser, update } = useContext(userContext);
+    const { register, currentUser, update, token } = useContext(userContext);
 
     // Initial state set to two different objects, if the user is signing up
     //  updating their profile information. 
@@ -81,15 +81,15 @@ function UserForm() {
         
         // Form will display either as: registering / updating profile
         // depending if the user is signed in or not. 
-
+        
         <div className="Form-Container">
-            {!currentUser.username && <h1>Sign Up</h1>}
-            {currentUser.username && <h1>Profile</h1>}
+            {!token && <h1>Sign Up</h1>}
+            {token && <h1>Profile</h1>}
             <form className="Form" onSubmit={handleSubmit}>
                 <div className="inputs-container">
                     
                     <label htmlFor="username">Username</label>
-                    {!currentUser.username && 
+                    {!token && 
                         <input className="input"
                             id="username"
                             name="username"
@@ -98,7 +98,7 @@ function UserForm() {
                             onChange={handleChange}
                         />
                     }
-                    {currentUser.username && <p>{currentUser.username}</p>}
+                    {token && <p>{currentUser.username}</p>}
                     
                     <label htmlFor="password">
                         {currentUser.username && <span>Confirm Password</span>}
@@ -143,8 +143,8 @@ function UserForm() {
                 </div>
                 {hasError && <div className="alert-box danger">{errorMessage}</div>}
                 {hasUpdated && <div className="alert-box success">Updated Successfully.</div>}
-                {!currentUser.username && <button>Submit</button>}
-                {currentUser.username && <button className="Save-Changes-Btn">Save Changes</button>}
+                {!token && <button>Submit</button>}
+                {token && <button className="Save-Changes-Btn">Save Changes</button>}
             </form>
         </div>
     )
