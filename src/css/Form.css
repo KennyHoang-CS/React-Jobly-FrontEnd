@@ -6,6 +6,7 @@
 
 .Form-Container h1 {
     font-weight: 400;
+    text-align: center;
 }
 
 .Form-Container h5 {
@@ -17,6 +18,8 @@
     padding: 20px;
     width: 400px;
     border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 label{
